@@ -3,7 +3,7 @@
  * @file
  * Defines class DrupalLoftCalendar
  *
- * @ingroup loft_calendar_lib
+ * @ingroup loft_calendar
  * @{
  */
 
@@ -28,4 +28,4 @@ class DrupalLoftCalendar extends LoftCalendar implements LoftCalendarInterface {
 }
 
 
-/** @} */ //end of group: loft_calendar_lib
+/** @} */ //end of group: loft_calendar

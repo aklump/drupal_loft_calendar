@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * API documentation for loft_calendar_lib module.
+ * API documentation for loft_calendar module.
  *
  * @addtogroup hooks
  * @{

@@ -1,9 +1,9 @@
 <?php
 /**
  * @file
- * Base module file for loft_calendar_lib
+ * Base module file for loft_calendar
  *
- * @defgroup loft_calendar_lib Loft Calendar Library
+ * @defgroup loft_calendar Loft Calendar Library
  * @{
  */
 
