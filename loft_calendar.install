@@ -1,0 +1,43 @@
+<?php
+/**
+ * @file
+ * Handles installation steps for loft_calendar_lib
+ *
+ * @ingroup func_search
+ * @{
+ */
+
+/**
+ * Implements hook_requirements().
+ *
+ * Checks installation requirements and do status reporting.
+ * http://api.drupal.org/api/function/hook_requirements
+ *
+ * @param phase 'install' or 'runtime':
+ * @return A keyed array of requirements
+ */
+function loft_calendar_lib_requirements($phase) {
+  $reqs = array();
+  $t = get_t();
+  if ($phase == 'runtime') {
+    $info = libraries_detect('loft_calendar');
+    $reqs['loft_calendar_lib'] = array(
+      'title' => check_plain($info['name']),
+      'value' => check_plain($info['version']),
+      'description' => $t('Loaded library from %path', array(
+        '%path' => libraries_get_path('loft_calendar'),
+      )),
+      'severity' => REQUIREMENT_OK,
+      );
+    if (!$info['installed']) {
+      $reqs['loft_calendar_lib']['title'] = $t('Loft Calendar');
+      $reqs['loft_calendar_lib']['value'] = $t('Not Found!');
+      $reqs['loft_calendar_lib']['description'] = $t('The Loft Calendar library is missing; see README for installation instructions.');
+      $reqs['loft_calendar_lib']['severity'] = REQUIREMENT_ERROR;
+    }
+  }
+  return $reqs;
+}
+
+/** @} */ //end of group loft_calendar_lib
+

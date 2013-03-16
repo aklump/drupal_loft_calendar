@@ -1,0 +1,31 @@
+<?php
+/**
+ * @file
+ * Defines class DrupalLoftCalendar
+ *
+ * @ingroup loft_calendar_lib
+ * @{
+ */
+
+/**
+ * Class DrupalLoftCalendar
+ *
+ * Mixes in drupal settings from the Date Module
+ */
+class DrupalLoftCalendar extends LoftCalendar implements LoftCalendarInterface {
+  public function __construct($start_date, $duration = 0, $first_day_of_week = NULL, $prefill = 1, $postfill = 1) {
+
+    // Use the date module's first day of week
+    if ($first_day_of_week === NULL) {
+      $first_day_of_week = variable_get('date_first_day', 0);
+    }
+
+    // Get weekday names from date module
+    $this->weekdays = date_week_days_abbr(TRUE);
+
+    parent::__construct($start_date, $duration, $first_day_of_week, $prefill, $postfill);
+  }
+}
+
+
+/** @} */ //end of group: loft_calendar_lib
